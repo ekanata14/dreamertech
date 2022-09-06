@@ -1,0 +1,13 @@
+body, html{
+    height: 100%;
+    background-color: #0096FF;
+}
+
+.login-regis-container{
+    height: 100%;
+}
+
+input{
+    border: 1px solid #0096FF;
+    border-radius: 20px;
+}
