@@ -11,7 +11,7 @@
                   <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="<?= BASE_URL;?>/home">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="#">Products</a>
+                  <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="<?= BASE_URL; ?>/products">Products</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="#">Services</a>

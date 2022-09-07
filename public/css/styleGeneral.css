@@ -1,0 +1,20 @@
+.bg-white-blue{
+    background-color: #0096FF;
+}
+
+.bg-dark-blue{
+    background-color: #0276C8;
+}
+
+.mh-300{
+    min-height: 300px !important;
+    max-height: 300px !important;
+}
+
+.product-desc{
+    height: 75px;
+}
+
+.scrollbar-none::-webkit-scrollbar{
+    width: 0;
+}

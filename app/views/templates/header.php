@@ -9,7 +9,7 @@
     <?php if($_GET['url'] == "user/login" || $_GET['url'] == "user/regis"){?>
         <link rel="stylesheet" href="<?= BASE_URL?>/css/style.css">
     <?php } else{?>
-
+        <link rel="stylesheet" href="<?=BASE_URL?>/css/styleGeneral.css">
     <?php } ?>
     </head>
 <body>

@@ -26,7 +26,7 @@
                         </div>
                         <button class="btn btn-primary mt-3">Register</button>
                     </form>
-                    <a href="<?=BASE_URL?>/user" class="text-primary">Doesn't have an Account? Register Now!</a>
+                    <a href="<?=BASE_URL?>/user/login" class="text-primary">Have an account? Login!</a>
                 </div>
             </div>
         </div>
