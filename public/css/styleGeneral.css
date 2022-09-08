@@ -1,3 +1,7 @@
+/* .products-container{
+    overflow: auto;
+} */
+
 .bg-white-blue{
     background-color: #0096FF;
 }
@@ -6,9 +10,9 @@
     background-color: #0276C8;
 }
 
-.mh-300{
-    min-height: 300px !important;
-    max-height: 300px !important;
+.mh-products{
+    min-height: 500px !important;
+    max-height: 500px !important;
 }
 
 .product-desc{

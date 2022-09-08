@@ -23,6 +23,9 @@
                 <li class="nav-item">
                   <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="<?= BASE_URL?>/user/userData">USER</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="<?= BASE_URL?>/products/productData">PRODUCTS</a>
+                </li>
                 <?php } else {?>
                   
                 <?php } ?>

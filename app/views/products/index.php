@@ -4,14 +4,14 @@
         <div class="col-lg-10 bg-dark-blue p-4">
             <h1>Central Processing Unit</h1>
             <h4 class="text-white mb-3">i9 Processors</h4>
-            <div class="card-container d-flex flex-row align-items-center">
+            <div class="card-container overflow-auto d-flex flex-row align-items-center w-100">
                 <?php foreach($data['products'] as $product){ ?>
-                <div class="card p-4 mx-4 mh-300 overflow-auto scrollbar-none" style="width: 18rem;">
+                <div class="card p-4 mx-4 w-25 mh-products overflow-auto scrollbar-none" style="width: 18rem;">
                 <img src="<?=BASE_URL?>/images/<?= $product['product-img']; ?>" class="card-img-top" alt="cpu-logo">
                     <div class="card-body">
                         <h5 class="card-title"><?= $product['product-title']; ?></h5>
                         <p class="card-text product-desc overflow-auto scrollbar-none"><?= $product['product-desc'];?></p>
-                        <a href="#" class="btn btn-primary">Detail</a>
+                        <a href="<?= BASE_URL ?>/products/detail/<?= $product['product-unikey']; ?>" class="btn btn-primary">Detail</a>
                         <a href="#" class="btn btn-success">Buy</a>
                     </div>
                 </div>

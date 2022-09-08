@@ -9,7 +9,7 @@ class Login extends Controller{
 
         if($this->model("User_model")->checkLogin($data) > 0){
             $row = $this->model("User_model")->getDataUserByEmail($data);
-            session_start();
+            // session_start();
             $_SESSION['user'] = [
                 'id' => $row['id'],
                 'username' => $row['username'],
@@ -20,7 +20,9 @@ class Login extends Controller{
             unset($_POST);
             header('Location:' . BASE_URL . '/home');
         } else{
-            header('Location:' . BASE_URL . '/user');
+            (new Flasher)->setFlash('failed', 'login', 'danger');
+            header('Location:' . BASE_URL . '/user/login');
+            exit;
         }
     }
 }

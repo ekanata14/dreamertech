@@ -6,6 +6,7 @@
                     <img src="<?=BASE_URL?>/images/homeImage.svg" alt="homeImage" class="w-100">
                 </div>
                 <div class="col-lg-6">
+                    <?php (new Flasher)->flash();?>
                     <h1>Welcome to DreamerTech</h1>
                     <h3 class="text-white">Make a Good Tech With Us</h3>
                     <form action="<?=BASE_URL?>/login" method="POST" class="mb-3">
