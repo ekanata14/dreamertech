@@ -84,11 +84,29 @@ class User extends Controller{
 
     public function deleteUser($id){
         if($this->model("User_model")->delete($id) > 0){
-            (new Flasher)->setFlash('succeed', 'deleted', 'success');
+            (new Flasher)->setFlash ('succeed', 'deleted', 'success');
             header("Location:" . BASE_URL . "/user/userData");
         } else{
             (new Flasher)->setFlash('failed', 'delete', 'danger');
             header("Location:" . BASE_URL . "/user/userData");
         }
+    }
+
+    public function searchUser(){
+        $data['title'] = "Dreamer Tech Admin";
+        $data['users'] = $this->model("User_model")->search($_POST);
+        $this->view("templates/header", $data);
+        $this->view("templates/navbar", $data);
+        $this->view("user/datas", $data);
+        $this->view("templates/footer");
+    }
+
+    public function userRegion(){
+        $data['title'] = "Dreamer Tech Admin";
+        $data['users'] = $this->model("User_model")->getUserByRegion($_POST);
+        $this->view("templates/header", $data);
+        $this->view("templates/navbar", $data);
+        $this->view("user/datas", $data);
+        $this->view("templates/footer");
     }
 }

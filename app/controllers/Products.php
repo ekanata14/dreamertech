@@ -101,4 +101,22 @@ class Products extends Controller{
             header("Location:" . BASE_URL . "/products/productData");
         }
     }
+
+    public function searchProduct(){
+        $data['title'] = "Dreamer Tech Admin";
+        $data['products'] = $this->model("Products_model")->searchProduct($_POST);
+        $this->view("templates/header", $data);
+        $this->view("templates/navbar", $data);
+        $this->view("products/datas", $data);
+        $this->view("templates/footer");
+    }
+
+    public function productType(){
+        $data['title'] = "Dreamer Tech Admin";
+        $data['products'] = $this->model("Products_model")->getProductByType($_POST);
+        $this->view("templates/header", $data);
+        $this->view("templates/navbar", $data);
+        $this->view("products/datas", $data);
+        $this->view("templates/footer");
+    }
 }

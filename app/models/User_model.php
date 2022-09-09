@@ -34,12 +34,12 @@ class User_model extends Controller{
     }
 
     public function addUser($data){
-        $query = "INSERT INTO $this->table VALUES(null, :username, :email, :pass, :addresss, 'user')";
+        $query = "INSERT INTO $this->table VALUES(null, :username, :email, :pass, :region, 'user')";
         $this->db->query($query);
         $this->db->bind('username', $data['username']);
         $this->db->bind('email', $data['email']);
         $this->db->bind('pass', $data['pass']);
-        $this->db->bind('addresss', $data['address']);   
+        $this->db->bind('region', $data['region']);
         $this->db->execute();
         return $this->db->rowCount();
     }
@@ -50,7 +50,7 @@ class User_model extends Controller{
             username = :username,
             email = :email,
             password = :pass,
-            address = :addresss,
+            address = :region,
             role = :role
             WHERE id = :id
             ";
@@ -59,7 +59,7 @@ class User_model extends Controller{
         $this->db->bind('username', $data['username']);
         $this->db->bind('email', $data['email']);
         $this->db->bind('pass', $data['pass']);
-        $this->db->bind('addresss', $data['address']);
+        $this->db->bind('region', $data['address']);
         $this->db->bind('role', $data['role']);
         $this->db->execute();
         return $this->db->rowCount();
@@ -71,5 +71,28 @@ class User_model extends Controller{
         $this->db->bind('id', $id);
         $this->db->execute();
         return $this->db->rowCount();
+    }
+
+    public function search(){
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM $this->table WHERE username LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
+    public function getUserByRegion(){
+        $region = $_POST['region'];
+        if($region == "All"){
+            $query = "SELECT * FROM $this->table";
+        } else{
+            $query = "SELECT * FROM $this->table WHERE region = :region";
+        }
+        
+        $this->db->query($query);
+        $this->db->bind('region', $region);
+        $this->db->execute();
+        return $this->db->resultSet();
     }
 }

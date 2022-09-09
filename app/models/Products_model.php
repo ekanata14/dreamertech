@@ -15,21 +15,21 @@ class Products_model extends Controller{
     }
 
     public function getAllCpu(){
-        $query = "SELECT * FROM $this->table WHERE `product-type` = 'cpu'";
+        $query = "SELECT * FROM $this->table WHERE `type` = 'cpu'";
         $this->db->query($query);
         $this->db->execute();
         return $this->db->resultSet();
     }
 
     public function getAllGpu(){
-        $query = "SELECT * FROM $this->table WHERE `product-type` = 'gpu'";
+        $query = "SELECT * FROM $this->table WHERE `type` = 'gpu'";
         $this->db->query($query);
         $this->db->execute();
         return $this->db->resultSet();
     }
 
     public function getAllStorage(){
-        $query = "SELECT * FROM $this->table WHERE `product-type` = 'storage'";
+        $query = "SELECT * FROM $this->table WHERE `type` = 'storage'";
         $this->db->query($query);
         $this->db->execute();
         return $this->db->resultSet();
@@ -83,5 +83,27 @@ class Products_model extends Controller{
         $this->db->bind("id", $id);
         $this->db->execute();
         return $this->db->rowCount();
+    }
+
+    public function searchProduct(){
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM $this->table WHERE `product-title` LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+        $this->db->execute();
+        return $this->db->resultSet();
+    }
+
+    public function getProductByType(){
+        $type = $_POST['type'];
+        if($type == "All"){
+            $query = "SELECT * FROM $this->table";
+        } else{
+            $query = "SELECT * FROM $this->table WHERE `type` = :type";
+        }
+        $this->db->query($query);
+        $this->db->bind('type', $type);
+        $this->db->execute();
+        return $this->db->resultSet();
     }
 }
