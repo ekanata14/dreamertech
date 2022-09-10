@@ -4,7 +4,7 @@ class Products extends Controller{
     public function index(){
         // session_start();
         $data['title'] = 'Dreamer Tech';
-        $data['products'] = $this->model("Products_model")->getAllCpu();
+        $data['products'] = $this->model("Products_model")->getAllProductsByType('CPU');
         $this->view("templates/header", $data);
         $this->view("templates/navbar", $data);
         $this->view("home/index");
@@ -15,7 +15,7 @@ class Products extends Controller{
     public function gpu(){
         // session_start();
         $data['title'] = 'Dreamer Tech';
-        $data['products'] = $this->model("Products_model")->getAllGpu();
+        $data['products'] = $this->model("Products_model")->getAllProductsByType('GPU');
         $this->view("templates/header", $data);
         $this->view("templates/navbar", $data);
         $this->view("home/index");
@@ -26,11 +26,41 @@ class Products extends Controller{
     public function storage(){
         // session_start();
         $data['title'] = "Dreamer Tech";
-        $data['products'] = $this->model("Products_model")->getAllStorage();
+        $data['products'] = $this->model("Products_model")->getAllProductsByType('Storage');
         $this->view("templates/header", $data);
         $this->view("templates/navbar", $data);
         $this->view("home/index");
         $this->view("products/storage", $data);
+        $this->view("templates/footer");
+    }
+
+    public function fan(){
+        $data['title'] = "Dreamer Tech";
+        $data['products'] = $this->model("Products_model")->getAllProductsByType('fan');
+        $this->view("templates/header", $data);
+        $this->view("templates/navbar", $data);
+        $this->view("home/index");
+        $this->view("products/fan", $data);
+        $this->view("templates/footer");
+    }
+
+    public function ram(){
+        $data['title'] = "Dreamer Tech";
+        $data['products'] = $this->model("Products_model")->getAllProductsByType('RAM');
+        $this->view("templates/header", $data);
+        $this->view("templates/navbar", $data);
+        $this->view("home/index");
+        $this->view("products/ram", $data);
+        $this->view("templates/footer");
+    }
+
+    public function case(){
+        $data['title'] = "Dreamer Tech";
+        $data['products'] = $this->model("Products_model")->getAllProductsByType('Case');
+        $this->view("templates/header", $data);
+        $this->view("templates/navbar", $data);
+        $this->view("home/index");
+        $this->view("products/case", $data);
         $this->view("templates/footer");
     }
 

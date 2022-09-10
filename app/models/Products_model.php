@@ -14,16 +14,10 @@ class Products_model extends Controller{
         return $this->db->resultSet();
     }
 
-    public function getAllCpu(){
-        $query = "SELECT * FROM $this->table WHERE `type` = 'cpu'";
+    public function getAllProductsByType($type){
+        $query = "SELECT * FROM $this->table WHERE `type` = :type";
         $this->db->query($query);
-        $this->db->execute();
-        return $this->db->resultSet();
-    }
-
-    public function getAllGpu(){
-        $query = "SELECT * FROM $this->table WHERE `type` = 'gpu'";
-        $this->db->query($query);
+        $this->db->bind('type', $type);
         $this->db->execute();
         return $this->db->resultSet();
     }

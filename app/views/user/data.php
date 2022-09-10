@@ -4,7 +4,7 @@
     <h5 class="card-title"><?=$data['user']['username'];?></h5>
     <h6 class="card-subtitle mb-2 text-muted"><?=$data['user']['email'];?></h6>
     <p class="card-text"><?=$data['user']['password'];?></p>
-    <p class="card-text"><?=$data['user']['address'];?></p>
+    <p class="card-text"><?=$data['user']['region'];?></p>
     <a href="<?=BASE_URL?>/user/userData" class="card-link">Back</a>
   </div>
 </div>
