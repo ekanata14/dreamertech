@@ -17,7 +17,7 @@
                   <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="<?= BASE_URL?>/services">Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="#">About Us</a>
+                  <a class="nav-link active text-uppercase fw-semibold" aria-current="page" href="<?= BASE_URL?>/aboutUs">About Us</a>
                 </li>
                 <?php if($_SESSION['user']['role'] == 'admin'){ ?>
                 <li class="nav-item">
